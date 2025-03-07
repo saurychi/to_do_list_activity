@@ -42,6 +42,6 @@
 
     <a href="add_task.php">Add Task</a>
 
-    <?php include('../../backend/script.php'); ?>
-</body>
-</html>
+<?php
+    include('../components/footer.php');
+?>

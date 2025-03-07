@@ -27,9 +27,9 @@
         <button type="button" onclick="editTask();"> Edit </button>
         <button type="button" onclick="deleteTask(<?php echo $row['task_id']; ?>)">Delete</button>
     </form>
-    <br>
-    <?php include('../../backend/script.php'); ?>
     <br><br>
     <a href="index.php">Go back</a>
-</body>
-</html>
+
+<?php
+    include('../components/footer.php');
+?>

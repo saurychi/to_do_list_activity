@@ -79,9 +79,60 @@
                 },
                 success: function(response) {
                     alert(response);
-                    window.location.href = './index.php'; // Redirect to index page
+                    window.location.href = './index.php';
                 }
             });
         });
     });
+
+
+    // User authentication
+
+    function login() {
+        $(document).ready(function(){
+            var data = {
+                action: 'login',
+                username: $('#username').val(),
+                password: $('#password').val()
+            };
+
+            $.ajax({
+                url: '../../backend/function.php',
+                type: 'POST',
+                data: data,
+                success: function(response) {
+                    alert(response);
+                }
+            });
+        })
+    }
+
+    function signup() {
+        $(document).ready(function(){
+            var data = {
+                action: 'signup',
+                username: $('#username').val(),
+                password: $('#password').val(),
+                repassword: $('#repassword').val()
+            };
+
+            var password = $('#password').val();
+            var repassword = $('#repassword').val();
+            if(password != repassword){
+                alert("Passwords do not match");
+                return;
+            }
+
+            $.ajax({
+                url: '../../backend/function.php',
+                type: 'POST',
+                data: data,
+                success: function(response) {
+                    alert(response);
+                    window.location.href = './login.php';
+                }
+            });
+        })
+    }
+
 </script>

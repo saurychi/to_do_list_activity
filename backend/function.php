@@ -10,6 +10,10 @@
             delete();
         } else if ($_POST['action'] == 'update_status') {
             update_status();
+        } else if ($_POST['action'] == 'login') {
+            login();
+        } else if ($_POST['action'] == 'signup') {
+            signup();
         }
     }
 
@@ -61,6 +65,43 @@
             echo "Status updated successfully";
         } else {
             echo "Error updating status: " . mysqli_error($conn);
+        }
+    }
+
+
+    // User Authentication
+
+    function signup(){
+        global $conn;
+
+        $user_name = $_POST["username"];
+        $password = $_POST["password"];
+
+        $query = "INSERT INTO users (user_name, password, status) VALUES ('$user_name', '$password', 'active')";
+        mysqli_query($conn, $query);
+        echo "User added successfully!";
+        header('Location: ./login.php');
+        exit();
+    }
+
+    function login(){
+        global $conn;
+
+        $username = $_POST["username"];
+        $password = $_POST["password"];
+
+        $query = "SELECT user_id, user_name, password FROM users WHERE user_name = '$username' AND password = '$password'";
+        $result = mysqli_query($conn, $query);
+
+        if(mysqli_num_rows($result) == 0){
+            echo "Invalid username or password";
+        } else {
+            $row = mysqli_fetch_assoc($result);
+            session_start();
+            $_SESSION["username"] = $row["user_name"];
+            echo "Login successful!";
+            header('Location: ./index.php');
+            exit();
         }
     }
 

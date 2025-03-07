@@ -3,6 +3,7 @@
     include('../components/header.php');
 ?>
 
+<main>
     <h2>Add Task</h2>
     <form method="post">
         <label for="task_name">Task:</label><br>
@@ -17,10 +18,10 @@
 
         <button type="button" onclick="addTask();"> Add </button>
     </form>
-    <br>
-    <a href="signup.php">Don't have an account?</a>
-    <?php include('../../backend/script.php'); ?>
     <br><br>
     <a href="index.php">Go back</a>
-</body>
-</html>
+</main>
+
+<?php
+    include('../components/footer.php');
+?>
