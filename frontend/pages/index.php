@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-</head>
-<body>
+
+<?php
+    include('../components/header.php');
+?>
     <h2>Tasks</h2>
     <table border=1>
         <tr>
@@ -17,7 +13,7 @@
             <td>Created at</td>
         </tr>
         <?php
-            include('config.php');
+            include('../../backend/config.php');
             $rows  = mysqli_query($conn, "SELECT * FROM tasks");
             $i = 1;
         ?>
@@ -32,7 +28,10 @@
             <td><?php echo $row["created_at"]; ?></td>
             <td>
                 <a href="edit_task.php?id=<?php echo $row["task_id"]; ?>">Edit</a>
-                <button type="button" onclick="deleteTask(<?php echo $row['task_id']; ?>)">Delete</button>
+            </td>
+            <td>
+                <input type="checkbox" class="status-checkbox" data-id="<?php echo $row["task_id"]; ?>"
+                <?php echo ($row["status"] === "done") ? "checked" : ""; ?>>
             </td>
         </tr>
         <?php endforeach; ?>
@@ -43,6 +42,6 @@
 
     <a href="add_task.php">Add Task</a>
 
-    <?php include('script.php'); ?>
+    <?php include('../../backend/script.php'); ?>
 </body>
 </html>

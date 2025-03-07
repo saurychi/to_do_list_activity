@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Task</title>
-</head>
-<body>
+
+<?php
+    include('../components/header.php');
+?>
+
     <h2>Add Task</h2>
     <form method="post">
         <label for="task_name">Task:</label><br>
@@ -22,7 +19,7 @@
     </form>
     <br>
     <a href="signup.php">Don't have an account?</a>
-    <?php include('script.php'); ?>
+    <?php include('../../backend/script.php'); ?>
     <br><br>
     <a href="index.php">Go back</a>
 </body>

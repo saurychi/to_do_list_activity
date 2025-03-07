@@ -11,11 +11,12 @@
             };
 
             $.ajax({
-                url: 'function.php',
+                url: '../../backend/function.php',
                 type: 'POST',
                 data: data,
                 success: function(response) {
                     alert(response);
+                    window.location.href = './index.php';
                 }
             });
         })
@@ -32,14 +33,16 @@
             };
 
             $.ajax({
-                url: 'function.php',
+                url: '../../backend/function.php',
                 type: 'POST',
                 data: data,
                 success: function(response) {
                     alert(response);
+                    window.location.href = './index.php';
                 }
             });
         })
+
     }
 
     function deleteTask(id) {
@@ -50,13 +53,35 @@
             };
 
             $.ajax({
-                url: 'function.php',
+                url: '../../backend/function.php',
                 type: 'POST',
                 data: data,
                 success: function(response) {
                     alert(response);
+                    window.location.href = './index.php';
                 }
             });
         })
     }
+
+    $(document).ready(function(){
+        $('.status-checkbox').change(function(){
+            var taskId = $(this).data('id');
+            var status = $(this).is(':checked') ? 'done' : 'pending';
+
+            $.ajax({
+                url: '../../backend/function.php',
+                type: 'POST',
+                data: {
+                    action: 'update_status',
+                    id: taskId,
+                    status: status
+                },
+                success: function(response) {
+                    alert(response);
+                    window.location.href = './index.php'; // Redirect to index page
+                }
+            });
+        });
+    });
 </script>

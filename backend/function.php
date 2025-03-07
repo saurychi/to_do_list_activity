@@ -1,5 +1,5 @@
 <?php
-    include('config.php');
+    include('./config.php');
 
     if(isset($_POST["action"])){
         if($_POST["action"] == "insert"){
@@ -8,6 +8,8 @@
             edit();
         } else if($_POST["action"] == "delete"){
             delete();
+        } else if ($_POST['action'] == 'update_status') {
+            update_status();
         }
     }
 
@@ -46,6 +48,20 @@
         // echo $query;
         mysqli_query($conn, $query);
         echo "Task deleted successfully!";
+    }
+
+    function update_status(){
+        global $conn;
+
+        $id = $_POST['id'];
+        $status = $_POST['status'];
+
+        $query = "UPDATE tasks SET status='$status' WHERE task_id='$id'";
+        if (mysqli_query($conn, $query)) {
+            echo "Status updated successfully";
+        } else {
+            echo "Error updating status: " . mysqli_error($conn);
+        }
     }
 
 ?>
