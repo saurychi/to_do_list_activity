@@ -22,16 +22,81 @@ main h1 {
     font-size: 2rem;
     background-color: var(--dark-brown);
     width: 50rem;
-}
-
-#tasks_container {
-    border: 2px solid var(--dark-brown);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 1rem;
 }
 
 #filter_container {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--light-brown);
+    width: 50rem;
+    padding: 1rem;
+}
+
+#filter_container > div {
+    margin-left: 5rem;
+    color: var(--dark-red)
+}
+
+#filter_container > div select {
+    border-radius: 5rem;
+    padding: 0.5rem 0.8rem;
+    background-color: var(--light-brown);
+    border: 1px solid var(--dark-brown);
+}
+
+#filter_container > div select option {
+    color: var(--dark-red);
+}
+
+#filter_container > a {
+    margin-right: 5rem;
+    display: flex;
+    justify-content: space-between;
+    width: 7rem;
+    border: 1px solid var(--dark-brown);
+    padding: 0.5rem 0.8rem;
+    border-radius: 5rem;
+}
+
+#filter_container > a:hover {
+    background-color: var(--dark-brown);
+    color: #ffffff;
+}
+
+#tasks_container {
+    width: 50rem;
+    padding: 1rem;
+    padding-top: 0.4rem;
+    background-color: var(--white);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 li {
+    padding: 0.5rem;
+    border-bottom: 1px solid var(--dark-brown);
+}
+
+li a {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--dark-brown)
+}
+
+li:hover {
+    background-color: var(--light-brown);
+}
+
+li a > input {
+    transform: scale(2.5);
+    margin-right: 2rem;
+}
+
+ul li:last-child {
+    border-bottom: none;
 }

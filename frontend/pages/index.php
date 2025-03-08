@@ -15,9 +15,9 @@
     <div id="filter_container">
         <div>
             <label for="options">Status:</label>
-            <select id="options" name="options">
-                <option value="1">Pending</option>
-                <option value="2">Done</option>
+            <select id="options" name="options" class="status-filter">
+                <option value="1">pending</option>
+                <option value="2">done</option>
             </select>
         </div>
         <a href="add_task.php">Add Task<span class="material-symbols-outlined">add</span></a>
@@ -26,27 +26,26 @@
     <div id="tasks_container">
         <?php
             include('../../backend/config.php');
-            $rows  = mysqli_query($conn, "SELECT * FROM tasks");
+            $status = $_COOKIE["status"];
+            $rows  = mysqli_query($conn, "SELECT * FROM tasks WHERE status='$status'");
             $i = 1;
         ?>
 
-        <?php foreach($rows as $row) : ?>
         <ul>
+        <?php foreach($rows as $row) : ?>
             <li id= <?php echo $row["task_id"]; ?>>
-                <div>
-                    <h2><?php echo $row["task_name"]; ?></h2>
-                    <p><?php echo $row["description"]; ?></p>
-                    <p>Due: <?php echo $row["expiry_date"]; ?></p>
-                </div>
-                <div>
-                    <a href="edit_task.php?id=<?php echo $row["task_id"]; ?>">Edit</a>
-
+                <a href="edit_task.php?id=<?php echo $row["task_id"]; ?>">
+                    <div>
+                        <h2><?php echo $row["task_name"]; ?></h2>
+                        <p><?php echo $row["description"]; ?></p>
+                        <p>Due: <?php echo $row["expiry_date"]; ?></p>
+                    </div>
                     <input type="checkbox" class="status-checkbox" data-id="<?php echo $row["task_id"]; ?>"
                     <?php echo ($row["status"] === "done") ? "checked" : ""; ?>>
-                </div>
+                </a>
             </li>
-        </ul>
         <?php endforeach; ?>
+        </ul>
     </div>
 </main>
 <?php

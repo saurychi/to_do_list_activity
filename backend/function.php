@@ -101,6 +101,7 @@
 
             session_start();
             $_SESSION["user"] = $row["user_name"];
+            setcookie("status", "pending", time() + 86400, "/");
             echo "Login successful!";
 
             // header('Location: ../frontend/pages/index.php');

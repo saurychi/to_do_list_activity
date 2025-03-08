@@ -85,6 +85,16 @@
         });
     });
 
+    $(document).ready(function(){
+        $('.status-filter').change(function(){
+            $value = $(this).val();
+
+            var value = $(this).val();
+            document.cookie = "status=" + value + "; path=/; max-age=" + (7 * 24 * 60 * 60);
+            window.location.href = './index.php';
+        });
+    });
+
 
     // User authentication
 
