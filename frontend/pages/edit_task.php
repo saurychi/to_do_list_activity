@@ -6,6 +6,9 @@
     }
     include('../components/header.php');
 ?>
+<style>
+    <?php include("../css/edit_task.css")?>
+</style>
     <h2>Edit Task</h2>
     <form method="post">
         <?php

@@ -1,12 +1,15 @@
 
 <?php
     session_start();
-    
+
     if(!isset($_SESSION["user"])){
         header("Location: ../pages/login.php");
     }
     include('../components/header.php');
 ?>
+<style>
+    <?php include("../css/add_task.css")?>
+</style>
 
 <main>
     <h2>Add Task</h2>

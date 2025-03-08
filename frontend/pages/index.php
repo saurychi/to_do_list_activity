@@ -6,6 +6,9 @@
     }
     include('../components/header.php');
 ?>
+<style>
+    <?php include("../css/index.css")?>
+</style>
     <h2>Tasks</h2>
     <table border=1>
         <tr>
