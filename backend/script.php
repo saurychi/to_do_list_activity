@@ -102,6 +102,27 @@
                 data: data,
                 success: function(response) {
                     alert(response);
+                    if (response == 'Login successful!') {
+                        window.location.href = './index.php';
+                    }
+                }
+            });
+        })
+    }
+
+    function logout() {
+        $(document).ready(function(){
+            var data = {
+                action: 'logout',
+            };
+
+            $.ajax({
+                url: '../../backend/function.php',
+                type: 'POST',
+                data: data,
+                success: function(response) {
+                    alert(response);
+                    window.location.href = './login.php';
                 }
             });
         })

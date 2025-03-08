@@ -1,4 +1,3 @@
-
 <?php
     include('../components/header.php');
 ?>
@@ -20,7 +19,7 @@
         <a href="./signup.php">Don't have an account?</a>
     </form>
 
-<main>
+</main>
 
 <?php
     include('../components/footer.php');

@@ -14,6 +14,8 @@
             login();
         } else if ($_POST['action'] == 'signup') {
             signup();
+        } else if ($_POST['action'] == 'logout') {
+            logout();
         }
     }
 
@@ -79,8 +81,7 @@
 
         $query = "INSERT INTO users (user_name, password, status) VALUES ('$user_name', '$password', 'active')";
         mysqli_query($conn, $query);
-        echo "User added successfully!";
-        header('Location: ./login.php');
+        echo 'User created successfully!';
         exit();
     }
 
@@ -97,12 +98,21 @@
             echo "Invalid username or password";
         } else {
             $row = mysqli_fetch_assoc($result);
+
             session_start();
-            $_SESSION["username"] = $row["user_name"];
+            $_SESSION["user"] = $row["user_name"];
             echo "Login successful!";
-            header('Location: ./index.php');
+
+            // header('Location: ../frontend/pages/index.php');
+            // echo '<script>window.location.href = "../frontend/pages/index.php";</script>';
             exit();
         }
+    }
+
+    function logout() {
+        session_start();
+        session_destroy();
+        echo "Logout successful!";
     }
 
 ?>

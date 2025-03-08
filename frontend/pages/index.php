@@ -1,5 +1,9 @@
-
 <?php
+    session_start();
+
+    if(!isset($_SESSION["user"])){
+        header("Location: ../pages/login.php");
+    }
     include('../components/header.php');
 ?>
     <h2>Tasks</h2>
