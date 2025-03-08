@@ -4,6 +4,7 @@
     if(!isset($_SESSION["user"])){
         header("Location: ../pages/login.php");
     }
+    $status = $_COOKIE["status"];
     include('../components/header.php');
 ?>
 <style>
@@ -16,8 +17,8 @@
         <div>
             <label for="options">Status:</label>
             <select id="options" name="options" class="status-filter">
-                <option value="1">pending</option>
-                <option value="2">done</option>
+                <option value="pending" <?php echo ($status == 'pending') ? 'selected' : ''; ?>>pending</option>
+                <option value="done" <?php echo ($status == 'done') ? 'selected' : ''; ?>>done</option>
             </select>
         </div>
         <a href="add_task.php">Add Task<span class="material-symbols-outlined">add</span></a>
@@ -27,6 +28,7 @@
         <?php
             include('../../backend/config.php');
             $status = $_COOKIE["status"];
+            // echo $status;
             $rows  = mysqli_query($conn, "SELECT * FROM tasks WHERE status='$status'");
             $i = 1;
         ?>
