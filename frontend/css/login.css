@@ -12,7 +12,7 @@ form {
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    width: 400px; /* Adjust form width */
+    width: 400px; 
 }
 
 h1 {
@@ -22,10 +22,10 @@ h1 {
 }
 
 input {
-    width: 90%; /* Adjust input width */
-    max-width: 350px; /* Prevents from being too large */
-    padding: 1rem; /* Increases input height */
-    font-size: 1.2rem; /* Makes text bigger */
+    width: 90%;
+    max-width: 350px; 
+    padding: 1rem;
+    font-size: 1.2rem;
     border: 2px solid var(--dark-brown);
     border-radius: 8px;
     background-color: var(--light-brown);
