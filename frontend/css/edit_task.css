@@ -1,0 +1,99 @@
+/* Color Palette */
+:root {
+    --white: #d4c6b5;
+    --grey: #BEACB8;
+    --dark-brown: #2C1D27;
+    --light-brown: #a4855f;
+    --beige: #DBC2A4;
+    --light-red: #CF3E29;
+    --dark-red: #782221;
+}
+
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background: var(--beige);
+    color: var(--dark-brown);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Container */
+.edit-task-container {
+    width: 90%;
+    max-width: 500px;
+    margin: auto;
+    background: var(--white);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Form Inputs */
+.edit-task-container input,
+.edit-task-container select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid var(--grey);
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Form Label */
+.edit-task-container label {
+    font-weight: bold;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Button */
+.edit-task-container button {
+    background: var(--light-red);
+    color: var(--white);
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.edit-task-container button:hover {
+    background: var(--dark-red);
+}
+
+/* Footer */
+.footer {
+    width: 100%;
+    background: var(--dark-brown);
+    color: var(--white);
+    text-align: center;
+    padding: 15px 0;
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    margin-top: auto; /* Pushes footer to bottom */
+}
+
+/* Fix content overlap with footer */
+.main-content {
+    flex: 1;
+    padding-bottom: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
