@@ -9,16 +9,21 @@
 <style>
     <?php include("../css/index.css")?>
 </style>
-    <h2>Tasks</h2>
-    <table border=1>
-        <tr>
-            <td>task id</td>
-            <td>Name</td>
-            <td>Description</td>
-            <td>Status</td>
-            <td>Expiry Date</td>
-            <td>Created at</td>
-        </tr>
+
+<main>
+    <h1>Tasks</h1>
+    <div id="filter_container">
+        <div>
+            <label for="options">Status:</label>
+            <select id="options" name="options">
+                <option value="1">Pending</option>
+                <option value="2">Done</option>
+            </select>
+        </div>
+        <a href="add_task.php">Add Task<span class="material-symbols-outlined">add</span></a>
+    </div>
+
+    <div id="tasks_container">
         <?php
             include('../../backend/config.php');
             $rows  = mysqli_query($conn, "SELECT * FROM tasks");
@@ -26,29 +31,24 @@
         ?>
 
         <?php foreach($rows as $row) : ?>
-        <tr id= <?php echo $row["task_id"]; ?>>
-            <td><?php echo $i++; ?></td>
-            <td><?php echo $row["task_name"]; ?></td>
-            <td><?php echo $row["description"]; ?></td>
-            <td><?php echo $row["status"]; ?></td>
-            <td><?php echo $row["expiry_date"]; ?></td>
-            <td><?php echo $row["created_at"]; ?></td>
-            <td>
-                <a href="edit_task.php?id=<?php echo $row["task_id"]; ?>">Edit</a>
-            </td>
-            <td>
-                <input type="checkbox" class="status-checkbox" data-id="<?php echo $row["task_id"]; ?>"
-                <?php echo ($row["status"] === "done") ? "checked" : ""; ?>>
-            </td>
-        </tr>
+        <ul>
+            <li id= <?php echo $row["task_id"]; ?>>
+                <div>
+                    <h2><?php echo $row["task_name"]; ?></h2>
+                    <p><?php echo $row["description"]; ?></p>
+                    <p>Due: <?php echo $row["expiry_date"]; ?></p>
+                </div>
+                <div>
+                    <a href="edit_task.php?id=<?php echo $row["task_id"]; ?>">Edit</a>
+
+                    <input type="checkbox" class="status-checkbox" data-id="<?php echo $row["task_id"]; ?>"
+                    <?php echo ($row["status"] === "done") ? "checked" : ""; ?>>
+                </div>
+            </li>
+        </ul>
         <?php endforeach; ?>
-
-    </table>
-
-    <br><br>
-
-    <a href="add_task.php">Add Task</a>
-
+    </div>
+</main>
 <?php
     include('../components/footer.php');
 ?>

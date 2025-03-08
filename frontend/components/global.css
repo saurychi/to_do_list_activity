@@ -27,9 +27,6 @@ header h2{
 }
 
 footer {
-    position: fixed;
-    bottom: 0;
-    width: 100vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -41,4 +38,23 @@ footer {
 footer p {
     color: #ffffff;
     margin-left: 5%;
+}
+
+header form {
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    width: 13rem;
+}
+
+header form button {
+    border: 1px solid #ffffff;
+    padding: 1px 5px;
+    background-color: var(--light-red);
+    color: #ffffff;
+    font-size: 15px;
+}
+
+header form button:hover {
+    background-color: var(--dark-red);
 }
