@@ -1,14 +1,3 @@
-/* Color Palette */
-:root {
-    --white: #d4c6b5;
-    --grey: #BEACB8;
-    --dark-brown: #2C1D27;
-    --light-brown: #a4855f;
-    --beige: #DBC2A4;
-    --light-red: #CF3E29;
-    --dark-red: #782221;
-}
-
 /* Global Styles */
 body {
     font-family: 'Arial', sans-serif;

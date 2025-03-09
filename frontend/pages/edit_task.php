@@ -9,8 +9,10 @@
 <style>
     <?php include("../css/edit_task.css")?>
 </style>
+
     <h2>Edit Task</h2>
-    <form method="post">
+<main>
+    <form method="post" class="edit-task-container">
         <?php
             include('../../backend/config.php');
             $task_id = $_GET["id"];
@@ -36,7 +38,7 @@
     </form>
     <br><br>
     <a href="index.php">Go back</a>
-
+</main>
 <?php
     include('../components/footer.php');
 ?>
