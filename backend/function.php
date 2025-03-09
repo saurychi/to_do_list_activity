@@ -113,6 +113,7 @@
     function logout() {
         session_start();
         session_destroy();
+        setcookie("status", "", time() - 0, "/");
         echo "Logout successful!";
     }
 
